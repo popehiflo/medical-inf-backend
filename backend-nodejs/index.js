@@ -3,6 +3,10 @@ const express = require('express');
 // Crear el servidor de express
 const app = express();
 
+// user y pwd mongo atlas - mongo db compass
+//clinic_user
+//E9szIVDtLq6lFCcO
+
 // Rutas
 app.get('/', (req, res) => {
     res.json({
