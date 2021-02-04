@@ -1,11 +1,11 @@
 const express = require('express');
+const { dbConnection } = require('./database/config');
 
 // Crear el servidor de express
 const app = express();
 
-// user y pwd mongo atlas - mongo db compass
-//clinic_user
-//E9szIVDtLq6lFCcO
+// Base de Datos
+dbConnection();
 
 // Rutas
 app.get('/', (req, res) => {
