@@ -4,7 +4,7 @@ const dbConnection = async () => {
     //mongodb+srv://clinic_user:E9szIVDtLq6lFCcO@cluster0.6by7g.mongodb.net/clinicadb?authSource=admin&replicaSet=atlas-byp7xv-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
     try {
         await mongoose.connect(
-            'mongodb+srv://clinic_user:E9szIVDtLq6lFCcO@cluster0.6by7g.mongodb.net/clinicadb', 
+            process.env.DB_CNN, 
             {
                 useNewUrlParser: true, 
                 useUnifiedTopology: true,
