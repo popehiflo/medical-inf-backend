@@ -17,14 +17,14 @@ Inicio de sesion
 * [nodemon](https://www.npmjs.com/package/nodemon) - Herramienta que reinicia automáticamente la app al detectar cambios
 
 ## Backend Java construido con 🛠️
-* [MySQL]() -
+* [MySQL 8]() -
 * [Java](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) - Java SE Development Kit 8
 * [Spring](https://spring.io/) - El framework web usado
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
 ## Comenzando 🚀
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 ## Codigo Fuente 📁
-* [Backend NodeJS](backend-nodejs)
+* [Backend NodeJS](backend/api-nodejs/gestionclinica-nodejs)
 
 ## Licencia 📄     
          
