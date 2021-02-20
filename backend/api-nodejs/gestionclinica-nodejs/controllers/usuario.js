@@ -1,3 +1,5 @@
+const { response } = require('express');
+
 const Usuario = require('../models/usuario');
 
 
@@ -17,14 +19,37 @@ const crearUsuario = async(req, res = response) => {
 
     const { email, password } = req.body;
 
-    const usuario = new Usuario(req.body);
+    try {
 
-    await usuario.save();
+        const existeEmail = await Usuario.findOne({email});
+        
+        if ( existeEmail ) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'El correo ya está registrado'
+            });
+        }
 
-    res.json({
-        ok: true,
-        usuario
-    });
+        const usuario = new Usuario(req.body);
+
+        // Guardar Usuario
+        await usuario.save();
+
+        res.json({
+            ok: true,
+            usuario
+        });
+
+    } catch (error) {
+        console.group('Error Guardar Usuario');
+        console.log(error);
+        console.groupEnd();
+        res.status(500).json({
+            ok: false,
+            msg: 'Error inesperado... Ver logs'
+        });
+    
+    }
 }
 
 module.exports = {
