@@ -15,12 +15,8 @@ app.use(cors());
 dbConnection();
 
 // Rutas
-app.get('/', (req, res) => {
-    res.json({
-        ok: true,
-        msg: 'Hola Mundo!'
-    })
-});
+app.use( '/api/usuarios', require('./routes/usuarios') );
+//app.use( '/api/login', require('./routes/auth') );
 
 app.listen(process.env.PORT, () => {
     console.log('Serve node iniciado en puerto ' + process.env.PORT);
