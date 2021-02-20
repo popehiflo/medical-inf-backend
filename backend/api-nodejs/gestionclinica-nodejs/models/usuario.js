@@ -31,6 +31,13 @@ const UsuarioSchema = Schema({
 
 });
 
+// Reescribe _id por uid, solo visual no afecta bd
+UsuarioSchema.method('toJSON', function() {
+    const { __v, _id, password, ...object } = this.toObject();
+    object.uid = _id;
+    return object;
+})
+
 // implementar/exponer modelo
 /* Cuando mongoose genere la collecion en mongo db le asiganara,
     el nombre en plural 'Usuarios' */
