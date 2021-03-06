@@ -10,9 +10,11 @@ const getUsuarios = async(req, res) => {
     // Listar solo campos que me interesan
     const usuarios = await Usuario.find({}, 'nombre email role google');
 
+    // uid viene desde validar-jwt
     res.json({
         ok: true,
-        usuarios
+        usuarios,
+        uid: req.uid
     });
 
 }
