@@ -62,16 +62,14 @@ const updateUsuario = async (req, res = response) => {
             })
         }
         
-        /* --Falta validar token y comprobar si es usuario correcto*/
+        /* --ToDo: validar token y comprobar si es usuario correcto*/
 
         // Actualizar usuario
-        const campos = req.body;
+        const {password, google, email, ...campos} = req.body;
 
 
-        if (usuarioDB.email === req.body.email) {
-            delete campos.email;
-        } else {
-            const existeEmail = await Usuario.findOne({email: req.body.email});
+        if (usuarioDB.email !== email) {
+            const existeEmail = await Usuario.findOne({email});
             if ( existeEmail ){
                 return res.status(400).json({
                     ok: false,
@@ -80,9 +78,7 @@ const updateUsuario = async (req, res = response) => {
             }
         }
 
-        delete campos.password;
-        delete campos.google;
-
+        campos.email = email;
         const usuarioActualizado = await Usuario.findByIdAndUpdate( uid, campos, {new: true});
 
         res.json({
