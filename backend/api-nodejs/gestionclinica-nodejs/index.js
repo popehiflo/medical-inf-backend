@@ -19,8 +19,8 @@ dbConnection();
 
 // Rutas
 app.use( '/api/usuarios', require('./routes/usuario.routes') );
-//app.use( '/api/login', require('./routes/auth') );
+app.use( '/api/login', require('./routes/auth.routes') );
 
 app.listen(process.env.PORT, () => {
-    console.log('Serve node iniciado en puerto ' + process.env.PORT);
+    console.log('Server node iniciado en puerto ' + process.env.PORT);
 })
