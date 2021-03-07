@@ -14,7 +14,7 @@ const ClinicaSchema = Schema({
         ref: 'Usuario'
     }
 });
-//}, {  collection: 'hospitales' });
+//}, {  collection: 'clinicas' });
 /* Cuando mongoose genera la collecion en mongo db, le asiganara, el nombre en plural 
     pero en ingles (solo aumenta la "s") 'clinicas'. La linea 17 ayuda a que le asignes
     el nombre que quieras, solo reemplaza la linea 16 */
