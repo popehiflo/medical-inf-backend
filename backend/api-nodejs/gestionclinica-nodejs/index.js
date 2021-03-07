@@ -18,8 +18,10 @@ app.use( express.json() );
 dbConnection();
 
 // Rutas
-app.use( '/api/usuarios', require('./routes/usuario.routes') );
 app.use( '/api/login', require('./routes/auth.routes') );
+app.use( '/api/usuario', require('./routes/usuario.routes') );
+app.use( '/api/clinica', require('./routes/clinica.routes') );
+app.use( '/api/medico', require('./routes/medico.routes') );
 
 app.listen(process.env.PORT, () => {
     console.log('Server node iniciado en puerto ' + process.env.PORT);
