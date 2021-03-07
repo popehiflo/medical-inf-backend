@@ -19,7 +19,7 @@ const ClinicaSchema = Schema({
     pero en ingles (solo aumenta la "s") 'clinicas'. La linea 17 ayuda a que le asignes
     el nombre que quieras, solo reemplaza la linea 16 */
 
-// Quita __v del objeto y lo devuelve sin el
+// Quita __v de object y lo devuelve sin ese item
 ClinicaSchema.method('toJSON', function() {
     const { __v, ...object } = this.toObject();
     return object;
