@@ -18,6 +18,7 @@
      [
          validarJWT,
          check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+         check('clinica', 'La clinica debe de ser valida').isMongoId(),
          validarCampos
      ],
      createMedico
