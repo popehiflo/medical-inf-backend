@@ -4,8 +4,10 @@ const ClinicaModel = require('../models/clinica.model');
 
 const getClinicas = async (req, res = response) => {
 
-    // Listar
-    const clinicas = await ClinicaModel.find({});
+    // Listar Clinicas - populate para obtener mas datos de usuario (query)
+    // const clinicas = await ClinicaModel.find()
+    const clinicas = await ClinicaModel.find({})
+                            .populate('usuario','nombre img');
 
     res.status(200).json({
         ok: true,
