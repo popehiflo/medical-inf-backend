@@ -1,11 +1,11 @@
 const { response } = require('express');
-const Clinica = require('../models/clinica.model');
+const ClinicaModel = require('../models/clinica.model');
 
 
-const getClinicas = (req, res = response) => {
+const getClinicas = async (req, res = response) => {
 
     // Listar
-    const clinicas = Clinica.find({});
+    const clinicas = await ClinicaModel.find({});
 
     res.status(200).json({
         ok: true,
@@ -17,18 +17,18 @@ const createClinica = async (req, res = response) => {
 
     // uid del usuario que viene el token
     const uid = req.uid;
-    // pasar el uid y resto que llega en el req.body
-    const clinica = new Clinica({
+    // pasar el uid y resto que llega en el req.body para la nueva clinica
+    const nuevaClinica = new ClinicaModel({
         usuario: uid,
         ...req.body
     });
 
     try {
-        const clinicaBD = await clinica.save();
+        const clinica = await nuevaClinica.save();
 
         res.status(200).json({
             ok: true,
-            hospital: clinicaBD
+            clinica
         }); 
     } catch (error) {
         console.group('Error Crear Clinica');
