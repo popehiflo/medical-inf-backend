@@ -7,14 +7,33 @@ const { generarJWT } = require('../helpers/jwt');
 
 const getUsuarios = async(req, res) => {
 
-    // Listar solo campos que me interesan
-    const usuarios = await Usuario.find({}, 'nombre email role google');
+    // parametro para paginacion
+    const desde = Number(req.query.desde) || 0;
+
+    // // Listar solo campos que me interesan
+    // const usuarios = await Usuario
+    //                         .find({}, 'nombre email role google')
+    //                         .skip(desde) // Que se salte los registros que indica desde
+    //                         .limit(5); // numero de registros a mostrar
+
+    // // Contar numero de registros
+    // const total = await Usuario.countDocuments();
+    // console.log(total);
+
+    const [usuarios, total] = await Promise.all([
+        Usuario
+            .find({}, 'nombre email role google')
+            .skip(desde) // Que se salte los registros que indica desde
+            .limit(5), // numero de registros a mostrar
+        
+        Usuario.countDocuments()
+    ]);
 
     // uid viene desde validar-jwt
     res.json({
         ok: true,
         usuarios,
-        uid: req.uid
+        total
     });
 
 }
