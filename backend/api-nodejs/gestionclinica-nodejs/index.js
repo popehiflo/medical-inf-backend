@@ -19,6 +19,7 @@ dbConnection();
 
 // Rutas
 app.use( '/api/login', require('./routes/auth.routes') );
+app.use( '/api/todo', require('./routes/busqueda.routes') );
 app.use( '/api/usuario', require('./routes/usuario.routes') );
 app.use( '/api/clinica', require('./routes/clinica.routes') );
 app.use( '/api/medico', require('./routes/medico.routes') );
