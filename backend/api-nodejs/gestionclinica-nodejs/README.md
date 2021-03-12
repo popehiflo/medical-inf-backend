@@ -16,8 +16,8 @@
 * Clone el repositorio y dirijase a `backend/api-nodejs/gestionclinica-nodejs`
 * Entonces, instale las dependencias/paquetes con `npm install` o `yarn`.
     * Luego cree un archivo `.env` y declare `DB_URI=<Your database uri>`
-        * Nota: La api usa MongoDB y mongoose, you must write an MongoDB url, example `mongodb://<Your hosted db>/<Your database>`
-    * Then run `npm run dev` or `yarn dev`.
-* Run as production:
-    * After clone the repository, run the command `npm run lint && npm run prettier && npm run buid` or `yarn lint && yarn prettier && yarn buid`
-    * Then run `npm start` or `yarn start`
+        * Nota: La api usa MongoDB y mongoose, debes escribir tu url de MongoDB, ejemplo: `mongodb://<Your hosted db>/<Your database>`
+    * Luego ejecuta `npm run start:dev` o `yarn start:dev`.
+* run para Producción:
+    * Despues de clonar el repositorio, ejecuta el comando `npm run lint && npm run prettier && npm run buid` or `yarn lint && yarn prettier && yarn buid`
+    * Luego ejecuta `npm start` or `yarn start`
