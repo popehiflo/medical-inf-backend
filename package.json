@@ -1,0 +1,13 @@
+{
+  "name": "medical-inf-backend",
+  "version": "1.0.0",
+  "description": "Gestion de la nformacion de una clinica",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "popehiflo",
+  "license": "ISC"
+}
